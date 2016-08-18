@@ -1,0 +1,14 @@
+*checkpoints*
+*.dat
+*.demo
+*.pyc
+*.numpy
+*.symbol
+*.json
+*.dat
+*.log
+*checkpoint*
+*.demo
+*.csv
+ml-100k/
+*.zip
