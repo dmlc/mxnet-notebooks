@@ -12,3 +12,4 @@
 *.csv
 ml-100k/
 *.zip
+*.params
