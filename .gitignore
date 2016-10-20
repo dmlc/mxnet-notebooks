@@ -13,3 +13,7 @@
 ml-100k/
 *.zip
 *.params
+*.jpg
+*.tar
+label
+synset.txt
