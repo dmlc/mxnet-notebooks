@@ -43,7 +43,7 @@ The python notebooks are written in [Jupyter](http://jupyter.org/).
 
       ```bash
         git clone https://github.com/dmlc/mxnet-notebooks
-        ubuntu@ip-172-31-3-29:~$ jupyter notebook
+        jupyter notebook
       ```
    	  We can optional run `~/update_mxnet.sh` to update MXNet to the newest version.
 
