@@ -7,10 +7,9 @@ state-of-the-art deep learning applications.
 
 ### Python
 
-The python notebooks are written in [Jupyter](http://jupyter.org/). 
+The python notebooks are written in [Jupyter](http://jupyter.org/).
 
-- **View** we sugguest to use http://nbviewer.jupyter.org/ for online viewing. Here is the link to open the
-[outline on nbviewer](http://nbviewer.jupyter.org/github/dmlc/mxnet-notebooks/blob/master/python/outline.ipynb).
+- **View** To view the notebooks on [nbviewer](http://nbviewer.jupyter.org/github/dmlc/mxnet-notebooks/blob/master/python/outline.ipynb).
 
 - **Edit** You should be able to view and edit these notebooks if jupyter is installed.
 
