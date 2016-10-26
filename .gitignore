@@ -13,9 +13,6 @@
 ml-100k/
 *.zip
 *.params
-<<<<<<< HEAD
-.idea/
-=======
 *.jpg
 *.tar
 *label
@@ -24,4 +21,3 @@ ml-100k/
 *.lst
 *.tar.gz
 *.gz
->>>>>>> fc7e538983f696bc4cc99ad34fae699e373f3396
