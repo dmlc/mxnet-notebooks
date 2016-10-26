@@ -3,6 +3,9 @@ import numpy as np
 def BCD_one(R, U, V, theta, lambda_u, lambda_v, dir_save='.',
         get_loss=False, num_iter=1):
     U = U.T
+    # count the number of non zero entries in R.
+    print(np.count_nonzero(R))
+
     V = np.mat(V.T)
     theta = np.mat(theta.T)
     num_v = R.shape[1]
@@ -19,12 +22,21 @@ def BCD_one(R, U, V, theta, lambda_u, lambda_v, dir_save='.',
     for it in range(num_iter):
         U_sq = U*U.T*b
         for j in range(num_v):
-            idx_a = np.where(R[:,j]>0)[0].A1
+            idx =  np.where(R[:, j] > 0)[0]
+            if type(idx) is np.matrix:
+                idx_a = idx.A1
+            else:
+                idx_a = idx
             U_cut = U[:,idx_a]
             V[:,j] = np.linalg.pinv(U_sq+U_cut*U_cut.T*a_m_b+I_v)*(U_cut*R[idx_a,j]+lambda_v*theta[:,j])
         V_sq = V*V.T*b
         for i in range(num_u):
-            idx_a = np.where(R[i,:]>0)[1].A1
+            idx =  np.where(R[i,:]>0)[1]
+            if type(idx) is np.matrix:
+                idx_a = idx.A1
+            else:
+                idx_a = idx
+            #idx_a = np.where(R[i,:]>0)[1].A1
             V_cut = V[:,idx_a]
             U[:,i] = np.linalg.pinv(V_sq+V_cut*V_cut.T*a_m_b+I_u)*(V_cut*R[i,idx_a].T)
         if it%10==9:

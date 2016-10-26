@@ -1,7 +1,19 @@
 import numpy as np
+import os
 from mult import read_mult
 
+
+def downloadData():
+    data_url = 'https://raw.githubusercontent.com/dmlc/web-data/master/mxnet/cdl'
+    for filename in ('mult.dat', 'cf-train-1-users.dat', 'cf-test-1-users.dat', 'raw-data.csv'):
+        if not os.path.exists(filename):
+            os.system("wget %s/%s" % (data_url, filename))
+
+
+
 def get_mult():
+    if not os.path.exists('mult.dat'):
+        downloadData()
     X = read_mult('mult.dat',8000).astype(np.float32)
     return X
 
