@@ -19,7 +19,6 @@ if __name__ == '__main__':
     np.random.seed(1234) # set seed
     lv = 1e-2 # lambda_v/lambda_n in CDL
     dir_save = 'cdl%d' % p
-
     if not os.path.isdir(dir_save):
         os.system('mkdir %s' % dir_save)
     fp = open(dir_save+'/cdl.log','w')
@@ -33,7 +32,6 @@ if __name__ == '__main__':
     else:
         X = data.get_mult()
         R = data.read_user()
-
     # set to INFO to see less information during training
     logging.basicConfig(level=logging.DEBUG)
     #ae_model = AutoEncoderModel(mx.gpu(0), [784,500,500,2000,10], pt_dropout=0.2,
