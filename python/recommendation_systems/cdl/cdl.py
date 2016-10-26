@@ -18,7 +18,7 @@ if __name__ == '__main__':
 
     np.random.seed(1234) # set seed
     lv = 1e-2 # lambda_v/lambda_n in CDL
-    dir_save = 'cdl%d' % (p)
+    dir_save = 'cdl%d' % p
 
     if not os.path.isdir(dir_save):
         os.system('mkdir %s' % dir_save)
