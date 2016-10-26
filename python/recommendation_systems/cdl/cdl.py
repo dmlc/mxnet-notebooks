@@ -8,11 +8,11 @@ from autoencoder import AutoEncoderModel
 import os
 
 if __name__ == '__main__':
-    lambda_u = 1 # lambda_u in CDL
+    lambda_u = .1 # lambda_u in CDL
     lambda_v = 10 # lambda_v in CDL
-    K = 50
-    p = 4
-    is_dummy = False
+    K = 50  # no of latent vectors in the compact representation
+    p = 4 # used for data-folder name
+    is_dummy = False # whether to use dummy data
     num_iter = 34000
     batch_size = 256
 
@@ -36,7 +36,9 @@ if __name__ == '__main__':
     logging.basicConfig(level=logging.DEBUG)
     #ae_model = AutoEncoderModel(mx.gpu(0), [784,500,500,2000,10], pt_dropout=0.2,
     #    internal_act='relu', output_act='relu')
-    ae_model = AutoEncoderModel(mx.cpu(2), [X.shape[1],100,K],
+
+    #mx.cpu() no param needed for cpu.
+    ae_model = AutoEncoderModel(mx.cpu(), [X.shape[1],100,K],
         pt_dropout=0.2, internal_act='relu', output_act='relu')
 
     train_X = X
