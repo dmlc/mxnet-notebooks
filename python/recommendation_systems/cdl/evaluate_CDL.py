@@ -33,8 +33,8 @@ def cal_rec(p, cut):
 if __name__ == '__main__':
 
     # give the same p as given in cdl.py
-    p = 5
-    #cal_rec(p, 300)
+    p = 4
+    cal_rec(p, 300)
     dir_save = 'cdl%d' % p
 
     R_test = read_user('cf-test-1-users.dat')
