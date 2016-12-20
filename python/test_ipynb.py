@@ -37,29 +37,34 @@ def _notebook_run(path):
     parent_dir, nb_name = os.path.split(path)
     with open(path) as nb_file:
         nb = nbformat.read(nb_file, as_version=4)
-        ep = ExecutePreprocessor(timeout=-1, kernel_name='python2')
-        try:
-            ep.preprocess(nb, {'metadata': {'path': parent_dir}})
-        except Exception as e:
-            error = str(e)
-        finally:
-            output_dir = parent_dir + "/test_output"
-            output_nb = output_dir + "/" + os.path.splitext(nb_name)[0] + "_output.ipynb"
-            #Trap an EEXIST to avoid race condition
+        ep = ExecutePreprocessor(timeout=900, kernel_name='python2')
+        #Use a loop to avoid "Kernel died before replying to kernel_info" error, repeat 5 times
+        for _ in range(0, 5):
+            error = ""
             try:
-                os.makedirs(output_dir)
-            except OSError as exception:
-                if exception.errno != errno.EEXIST:
-                    raise
-            with open(output_nb, mode='w') as f:
-                nbformat.write(nb, f)
-            f.close()
-            nb_file.close()
-            if len(error) == 0:
-                cell_num = _verify_output(path, output_nb)
-                if cell_num > 0:
-                    error = "Output in cell No.%d has changed.\n" % cell_num
-            return error
+                ep.preprocess(nb, {'metadata': {'path': parent_dir}})
+            except Exception as e:
+                error = str(e)
+            finally:
+                if error != 'Kernel died before replying to kernel_info':
+                    output_dir = parent_dir + "/test_output"
+                    output_nb = output_dir + "/" + os.path.splitext(nb_name)[0] + "_output.ipynb"
+                    #Trap an EEXIST to avoid race condition
+                    try:
+                        os.makedirs(output_dir)
+                    except OSError as exception:
+                        if exception.errno != errno.EEXIST:
+                            raise
+                    with open(output_nb, mode='w') as f:
+                        nbformat.write(nb, f)
+                    f.close()
+                    nb_file.close()
+                    if len(error) == 0:
+                        cell_num = _verify_output(path, output_nb)
+                        if cell_num > 0:
+                            error = "Output in cell No.%d has changed." % cell_num
+                    return error
+    return error
 
 
 def _verify_output(origin_nb, output_nb):
@@ -138,17 +143,21 @@ for dir in test_dirs:
                 parent_dir = os.path.dirname(notebook)
                 if parent_dir == "output":
                     continue
-                print "Start to test %s." % notebook
+                print "Start to test %s.\n" % notebook
                 error = _notebook_run(notebook)
                 if len(error) == 0:
                     succ_num += 1
-                    print "Tests for %s all passed!" % file
+                    print "Tests for %s all passed!\n" % file
                 else:
                     fail_num += 1
                     failed_notebooks.append(notebook)
-                    print "Tests for %s failed:" % file
-                    print error
-                    print "See output notebook for the traceback.\n"
+                    print "Tests for %s failed:\n" % file
+                    print error + '\n'
+                    if (error == 'Cell execution timed out, see log for details.' or 
+                        error == 'Kernel died before replying to kernel_info'):
+                        print "Please manually run this notebook to debug.\n"
+                    else:
+                        print "See output notebook for the traceback.\n"
                 total_num += 1
 print "%d notebooks tested, %d succeeded, %d failed" % (total_num, succ_num, fail_num)
 if len(failed_notebooks) > 0:
