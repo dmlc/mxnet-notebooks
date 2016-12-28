@@ -1,0 +1,91 @@
+
+<style type="text/css">
+  canvas { border: 1px solid black; }
+</style>
+
+<div id="board">
+
+  <canvas id="myCanvas" width="100px" height="100px">
+    Sorry, your browser doesn't support canvas technology.
+  </canvas>
+
+  <p>
+
+    <button id="classify" onclick="classify()">
+      Classify
+    </button>
+
+    <button id="clear" onclick="myClear()">
+      Clear
+    </button>
+    Result: 
+    <input type="text" id="result_output" size="5" value="">
+
+  </p>
+
+</div>
+
+<script type = "text/JavaScript" src = "https://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js?ver=1.4.2" > </script>
+
+<script type = "text/javascript" >
+
+    function init() {
+        var myCanvas = document.getElementById("myCanvas");
+        var curColor = $('#selectColor option:selected').val();
+        if (myCanvas) {
+            var isDown = false;
+            var ctx = myCanvas.getContext("2d");
+            var canvasX, canvasY;
+            ctx.lineWidth = 8;
+            $(myCanvas).mousedown(function(e) {
+                isDown = true;
+                ctx.beginPath();
+                var parentOffset = $(this).parent().offset();
+                canvasX = e.pageX - parentOffset.left;
+                canvasY = e.pageY - parentOffset.top;
+                ctx.moveTo(canvasX, canvasY);
+            }).mousemove(function(e) {
+                if (isDown != false) {
+                    var parentOffset = $(this).parent().offset();
+                    canvasX = e.pageX - parentOffset.left;
+                    canvasY = e.pageY - parentOffset.top;
+                    ctx.lineTo(canvasX, canvasY);
+                    ctx.strokeStyle = curColor;
+                    ctx.stroke();
+                }
+            }).mouseup(function(e) {
+                isDown = false;
+                ctx.closePath();
+            });
+        }
+        $('#selectColor').change(function() {
+            curColor = $('#selectColor option:selected').val();
+        });
+    }
+init();
+
+function handle_output(out) {
+    document.getElementById("result_output").value = out.content.data["text/plain"];
+}
+
+function classify() {
+    var kernel = IPython.notebook.kernel;
+    var myCanvas = document.getElementById("myCanvas");
+    data = myCanvas.toDataURL('image/png');
+    document.getElementById("result_output").value = "";
+    kernel.execute("classify('" + data + "')", {
+        'iopub': {
+            'output': handle_output
+        }
+    }, {
+        silent: false
+    });
+}
+
+function myClear() {
+    var myCanvas = document.getElementById("myCanvas");
+    myCanvas.getContext("2d").clearRect(0, 0, myCanvas.width, myCanvas.height);
+}
+
+
+</script>
