@@ -16,12 +16,12 @@ The python notebooks are written in [Jupyter](http://jupyter.org/).
   note that the former may be failed to render a page, while the latter has
   delays to view the recent changes.
 
-- **Edit** We can edit these notebooks if both mxnet and jupyter are
-  installed.
+- **Run** We can run and modify these notebooks if both [mxnet](http://mxnet.io/get_started/index.html#setup-and-installation) and [jupyter](http://jupyter.org/) are
+  installed. Here is an [example script](https://gist.github.com/mli/b64322f446b2043e3350ddcbfa5957be) to install all these packages on Ubuntu.
 
-  We show the instructions for serving the notebooks on AWS EC2.
+  If you have a AWS account, here is an easier way to run the notebooks:
 
-  1.  Launch a g2 or p2 instance by using AMI `ami-fe217de9` on N. Virginia (us-east-1). This AMI is built by using  [this script](https://gist.github.com/mli/b64322f446b2043e3350ddcbfa5957be). Remember to open the TCP port 8888 in the security group.
+  1.  Launch a g2.2xlarge or p2.2xlarge instance by using AMI `ami-fe217de9` on N. Virginia (us-east-1). This AMI is built by using  [this script](https://gist.github.com/mli/b64322f446b2043e3350ddcbfa5957be). Remember to open the TCP port 8888 in the security group.
 
   2.  Once launch is succeed, setup the following variable with proper value
 
