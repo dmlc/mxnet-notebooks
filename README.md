@@ -50,7 +50,7 @@ The python notebooks are written in [Jupyter](http://jupyter.org/).
    5. Now we are able to view and edit the notebooks on the browser using the URL: http://localhost:8888/tree/mxnet-notebooks/python/outline.ipynb
 
 
-## How to develope
+## How to develop
 
 Some general guidelines
 
