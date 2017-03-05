@@ -1,4 +1,4 @@
-## based on https://github.com/dmlc/mxnet/issues/1302
+## based on https://github.com/dmlc/mxnet/blob/master/example/kaggle-ndsb1/training_curves.py
 ## Parses the model fit log file and generates a train/val vs epoch plot
 import matplotlib.pyplot as plt
 import numpy as np
