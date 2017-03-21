@@ -78,16 +78,35 @@ The scala notebooks are written in [Jupyter](http://jupyter.org/) using [Jupyter
 
     4. Install [Maven](https://gist.github.com/sebsto/19b99f1fa1f32cae5d00). Install [Scala 2.11.8](https://www.scala-lang.org/files/archive/scala-2.11.8.rpm). Go to MXNet source code, compile scala-package by command `make scalapkg`. Compiled jar file will be created in `mxnet/scala-package/assembly/{your-architecture}/target` directory. 
 
-    5. Install [Jupyter-Scala Kernel V0.3.x](https://github.com/alexarchambault/jupyter-scala) according to the instructions given, including [coursier](https://github.com/coursier/coursier) scala library. Make sure coursier launcher is available in the PATH. To check if scala-kernel is installed, type command `jupyter kernelspec list`.
+    5. Install [coursier](https://github.com/coursier/coursier), a Scala library to fetch dependencies from Maven / Ivy repositories as follows.  
 
-    6. Clone this repo on the EC2 machine and run jupyter
+	    On OS X, `brew install --HEAD paulp/extras/coursier`
+	    On Linux, 
+
+	    ```bash
+	      curl -L -o coursier https://git.io/vgvpD && chmod +x coursier && ./coursier --help
+	    ```
+
+	    Make sure coursier launcher is available in the PATH.
+
+    6. Install [Jupyter-Scala Kernel V0.3.x](https://github.com/alexarchambault/jupyter-scala) according to the instructions given below: 
+
+      ```bash
+      	git clone https://github.com/alexarchambault/jupyter-scala.git
+      	git checkout 0.3.x
+      	./jupyter-scala
+      ```
+
+      To check if scala-kernel is installed, type command `jupyter kernelspec list`.
+
+    7. Clone this repo on the EC2 machine and run jupyter
 
       ```bash
         git clone https://github.com/dmlc/mxnet-notebooks
         jupyter notebook
       ```
 
-    6. Now we are able to view and edit the notebooks on the browser using the URL: http://localhost:8888/tree/mxnet-notebooks/scala/. Include mxnet-scala jar created in step-4 in classpath by command `classpath.addPath("jar-path")` in the notebook you want to run.
+    8. Now we are able to view and edit the notebooks on the browser using the URL: http://localhost:8888/tree/mxnet-notebooks/scala/. Choose scala211 kernel if asked. Include mxnet-scala jar created in step-4 in classpath by command `classpath.addPath("jar-path")` in the notebook you want to run.
 
 
 ## How to develop
