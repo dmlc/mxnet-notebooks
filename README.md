@@ -1,18 +1,18 @@
-#Python Notebooks for MXNet
+# Python Notebooks for MXNet
 
 This repo contains various notebooks ranging from basic usages of MXNet to
 state-of-the-art deep learning applications.
 
-##Outline
+## Outline
 
-###Tutorials
+### Tutorials
 
 *  MNIST: Recognize handwritten digits with multilayer perceptrons and convolutional neural networks
 * Recognize image objects with pre-trained model on the full Imagenet dataset that containing more than 10M images and over 10K classes
 *  Char-LSTM: Generates Obama's speeches with character-level LSTM.
 * Matrix Factorization: Recommend movies to users.
 
-###Basic Concepts
+### Basic Concepts
 
 * NDArray: manipulating multi-dimensional array
 * Symbol: symbolic expression for neural networks
@@ -20,12 +20,12 @@ state-of-the-art deep learning applications.
 * Loading data : feeding data into training/inference programs
 * Mixed programming: developing training algorithms by using NDArray and Symbol together.
 
-###How Tos
+### How Tos
 * Use pretrained models for prediction and feature extraction
 * Use pretrainde models for fine-tune
 
 
-##How to use
+## How to use
 
 The python notebooks are written in [Jupyter](http://jupyter.org/).
 
