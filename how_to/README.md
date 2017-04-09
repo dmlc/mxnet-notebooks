@@ -1,4 +1,4 @@
-#Outline 
+# Outline 
 
 ## Section-1
 * Use a pretrained 50 layers' [Deep Residual Learning](https://arxiv.org/abs/1512.03385)(resnet) model for prediction and feature extraction
