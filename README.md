@@ -5,13 +5,6 @@ state-of-the-art deep learning applications.
 
 ## Outline
 
-### Tutorials
-
-*  MNIST: Recognize handwritten digits with multilayer perceptrons and convolutional neural networks
-* Recognize image objects with pre-trained model on the full Imagenet dataset that containing more than 10M images and over 10K classes
-*  Char-LSTM: Generates Obama's speeches with character-level LSTM.
-* Matrix Factorization: Recommend movies to users.
-
 ### Basic Concepts
 
 * NDArray: manipulating multi-dimensional array
@@ -19,6 +12,15 @@ state-of-the-art deep learning applications.
 * Module : intermediate-level and high-level interface for neural network training and inference.
 * Loading data : feeding data into training/inference programs
 * Mixed programming: developing training algorithms by using NDArray and Symbol together.
+
+
+### Tutorials
+
+*  MNIST: Recognize handwritten digits with multilayer perceptrons and convolutional neural networks
+* Recognize image objects with pre-trained model on the full Imagenet dataset that containing more than 10M images and over 10K classes
+*  Char-LSTM: Generates Obama's speeches with character-level LSTM.
+* Matrix Factorization: Recommend movies to users.
+
 
 ### How Tos
 * Use a pretrained 50 layers' [Deep Residual Learning](https://arxiv.org/abs/1512.03385)(resnet) model for prediction and feature extraction
