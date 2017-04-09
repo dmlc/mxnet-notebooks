@@ -21,8 +21,8 @@ state-of-the-art deep learning applications.
 * Mixed programming: developing training algorithms by using NDArray and Symbol together.
 
 ### How Tos
-* Use a pretrainde model for fine-tune
 * Use a pretrained 50 layers' [Deep Residual Learning](https://arxiv.org/abs/1512.03385)(resnet) model for prediction and feature extraction
+* Fine-tune the [Deep Residual Learning](https://arxiv.org/abs/1512.03385)(resnet) model.
 * Use a pretrained [Inception-BatchNorm Network](https://arxiv.org/abs/1502.03167).
 
 
