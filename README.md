@@ -1,9 +1,9 @@
 # MXNet Notebooks
 
+**Note: We are not going to maintain this repo. A new and better one is available at https://github.com/zackchase/mxnet-the-straight-dope/ and hosted at http://thestraightdope.mxnet.io**
+
 This repo contains various notebooks ranging from basic usages of MXNet to
 state-of-the-art deep learning applications.
-
-Note: We are not going to maintain this repo. A new and better one is available at https://github.com/zackchase/mxnet-the-straight-dope/ and hosted at http://thestraightdope.mxnet.io
 
 ## How to use
 
