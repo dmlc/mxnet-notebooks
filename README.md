@@ -1,6 +1,9 @@
+**Note: We've moved the active work on this repo to https://github.com/dmlc/mxnet/tree/master/docs. 
+If you are looking for docs related to a new, dynamic, elegant and easy to use imperative interface for MXNet, check out http://gluon.mxnet.io/ or https://github.com/zackchase/mxnet-the-straight-dope **
+
+
 # MXNet Notebooks
 
-**Note: We are not going to maintain this repo. A new and better one is available at https://github.com/zackchase/mxnet-the-straight-dope/ and hosted at http://thestraightdope.mxnet.io**
 
 This repo contains various notebooks ranging from basic usages of MXNet to
 state-of-the-art deep learning applications.
