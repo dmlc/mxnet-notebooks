@@ -1,4 +1,4 @@
-** Note: We've moved the active work on this repo to https://github.com/dmlc/mxnet/tree/master/docs. If you are looking for docs related to a new, dynamic, elegant and easy to use imperative interface for MXNet, check out http://gluon.mxnet.io/ or https://github.com/zackchase/mxnet-the-straight-dope **
+**Note: We've moved the active work on this repo to https://github.com/dmlc/mxnet/tree/master/docs. If you are looking for docs related to a new, dynamic, elegant and easy to use imperative interface for MXNet, check out http://gluon.mxnet.io/ or https://github.com/zackchase/mxnet-the-straight-dope**
 
 
 # MXNet Notebooks
